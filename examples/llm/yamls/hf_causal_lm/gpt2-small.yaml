@@ -1,4 +1,4 @@
-data_local: ./my-copy-c4
+data_local: ./c4-scholastic-tiny/
 data_remote: # If blank, files must be present in data_local
 tokenizer_name: gpt2
 max_seq_len: 2048
@@ -15,7 +15,7 @@ model:
     # WARNING: if setting `pretrained: true`, `max_position_embeddings` must match the
     # `max_position_embeddings` used during pre-training
     n_positions: ${max_seq_len}
-  pretrained: false  # false: only use the architecture; true: initialize with pretrained weights
+  pretrained: true  # false: only use the architecture; true: initialize with pretrained weights
 
 # Tokenizer
 tokenizer:
