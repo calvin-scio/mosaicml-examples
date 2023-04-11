@@ -25,7 +25,6 @@ def main():
             with open(path, 'r') as f:
                 for line in f:
                     sample = json.loads(line.strip())
-                    print(filename, line)
                     out.write(sample)
 
 if __name__ == '__main__':
