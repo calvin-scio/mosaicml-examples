@@ -21,7 +21,8 @@ def main():
     # Save the samples as shards using MDSWriter
     with MDSWriter(out=args.output_data_dir, columns=columns) as out:
         for filename in os.listdir(args.input_data_dir):
-            with open(filename, 'r') as f:
+            path = os.path.join(args.input_data_dir, filename)
+            with open(path, 'r') as f:
                 for line in f:
                     sample = json.loads(line.strip())
                     out.write(sample)
