@@ -140,8 +140,8 @@ class StreamingTextDataset(StreamingDataset):
             self.tokenizer.pad_token = self.tokenizer.eos_token
             self.tokenizer.pad_token_id = self.tokenizer.eos_token_id
             # Some tokenizers (e.g. GPT2 tokenizer) have no padding token which causes bugs
-            raise RuntimeError(
-                'If tokenizing on-the-fly, tokenizer must have a pad_token_id')
+            # raise RuntimeError(
+            #     'If tokenizing on-the-fly, tokenizer must have a pad_token_id')
 
         return self.tokenizer(text_sample['text'],
                               truncation=True,
