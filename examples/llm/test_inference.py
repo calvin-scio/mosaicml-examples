@@ -1,8 +1,8 @@
 from transformers import AutoTokenizer, GPT2Model
 
-CHECKPOINT_DIR = "./run125/checkpoints/latest-rank0.pt"
+# CHECKPOINT_DIR = "./run125/checkpoints/latest-rank0.pt"
 
-model = GPT2Model.from_pretrained(CHECKPOINT_DIR)
+# model = GPT2Model.from_pretrained(CHECKPOINT_DIR)
 
 
 from transformers import AutoTokenizer
