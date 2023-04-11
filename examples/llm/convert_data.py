@@ -1,5 +1,6 @@
 # Based on https://github.com/mosaicml/streaming
 import argparse
+import os
 import numpy as np
 from PIL import Image
 from streaming import MDSWriter
@@ -19,10 +20,11 @@ def main():
 
     # Save the samples as shards using MDSWriter
     with MDSWriter(out=args.output_data_dir, columns=columns) as out:
-        with open(args.input_data_dir, 'r') as f:
-            for line in f:
-                sample = json.loads(line.strip())
-                out.write(sample)
+        for filename in os.listdir(args.input_data_dir):
+            with open(filename, 'r') as f:
+                for line in f:
+                    sample = json.loads(line.strip())
+                    out.write(sample)
 
 if __name__ == '__main__':
     main()
