@@ -16,6 +16,7 @@ model:
     # `max_position_embeddings` used during pre-training
     max_position_embeddings: ${max_seq_len}
   pretrained: false  # false: only use the architecture; true: initialize with pretrained weights
+  vocab_size: 50257
 
 # Tokenizer
 tokenizer:
