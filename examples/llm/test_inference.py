@@ -1,4 +1,7 @@
-from transformers import AutoTokenizer
+from transformers import AutoTokenizer, GPT2Config
+from transformers import AutoConfig
+
+config = AutoConfig.from_pretrained('EleutherAI/gpt-neo-125m')
 
 # CHECKPOINT_DIR = "./run125/checkpoints/latest-rank0.pt"
 
