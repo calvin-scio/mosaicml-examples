@@ -152,9 +152,15 @@ def main(cfg):
             local_save_path = os.path.join(str(tempdir), 'model.onnx')
         else:
             local_save_path = save_path
+        local_save_path_torchscript = local_save_path.replace('.onnx', 'model.pt')
         trainer.export_for_inference(
             save_format='onnx',
             save_path=local_save_path,
+            sample_input=sample_input,
+        )
+        trainer.export_for_inference(
+            save_format='torchscript',
+            save_path=local_save_path_torchscript,
             sample_input=sample_input,
         )
 
