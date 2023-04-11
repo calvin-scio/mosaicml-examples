@@ -105,7 +105,7 @@ loggers:
   wandb:
     entity: glean # Name of WandB entity, usually username or organization name
     project: egfm # Name of WandB project
-    group: run125  # Name of WandB group
+    group: ${run_name}  # Name of WandB group
 
 
 # Checkpoint to local filesystem or remote object store
