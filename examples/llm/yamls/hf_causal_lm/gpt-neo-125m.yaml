@@ -5,7 +5,7 @@ max_seq_len: 2048
 global_seed: 17
 
 # Run Name
-run_name: # If left blank, will be read from env var $COMPOSER_RUN_NAME
+run_name: run125 # If left blank, will be read from env var $COMPOSER_RUN_NAME
 
 # Model
 model:
@@ -101,15 +101,19 @@ callbacks:
   lr_monitor: {}
   memory_monitor: {}
 
-# loggers:
-#   wandb: {}
+loggers:
+  wandb:
+    entity: glean # Name of WandB entity, usually username or organization name
+    project: egfm # Name of WandB project
+    group: run125  # Name of WandB group
+
 
 # Checkpoint to local filesystem or remote object store
-# save_interval: 500ba
-# save_num_checkpoints_to_keep: 1  # Important, this cleans up checkpoints saved to DISK
-# save_folder: ./{run_name}/checkpoints
+save_interval: 10ba
+save_num_checkpoints_to_keep: 2  # Important, this cleans up checkpoints saved to DISK
+save_folder: ./{run_name}/checkpoints
 # save_folder: s3://my-bucket/my-folder/{run_name}/checkpoints
 
 # Load from local filesystem or remote object store
-# load_path: ./gpt-125m/checkpoints/latest-rank{rank}.pt
+load_path: ./gpt-125m/checkpoints/latest-rank{rank}.pt
 # load_path: s3://my-bucket/my-folder/gpt-125m/checkpoints/latest-rank{rank}.pt
