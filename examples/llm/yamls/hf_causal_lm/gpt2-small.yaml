@@ -71,7 +71,7 @@ algorithms:
     clipping_threshold: 1.0
 
 max_duration: 4800ba # ~ 2.5B tokens
-eval_interval: 500ba
+eval_interval: 5000ba
 eval_first: false
 eval_subset_num_batches: -1
 global_train_batch_size: 256
@@ -112,7 +112,7 @@ loggers:
     group: ${run_name}  # Name of WandB group
 
 # Checkpoint to local filesystem or remote object store
-save_interval: 500ba
+save_interval: 10ba
 save_num_checkpoints_to_keep: 2  # Important, this cleans up checkpoints saved to DISK
 save_folder: ./{run_name}/checkpoints
 # save_folder: s3://my-bucket/my-folder/{run_name}/checkpoints
