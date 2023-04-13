@@ -112,7 +112,7 @@ loggers:
     group: ${run_name}  # Name of WandB group
 
 # Checkpoint to local filesystem or remote object store
-save_interval: 10ba
+save_interval: 20ba
 save_num_checkpoints_to_keep: 2  # Important, this cleans up checkpoints saved to DISK
 save_folder: ./{run_name}/checkpoints
 # save_folder: s3://my-bucket/my-folder/{run_name}/checkpoints
