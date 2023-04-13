@@ -108,7 +108,7 @@ callbacks:
 loggers:
   wandb:
     entity: glean # Name of WandB entity, usually username or organization name
-    project: egfm # Name of WandB project
+    project: egfm-gpt2 # Name of WandB project
     group: ${run_name}  # Name of WandB group
 
 # Checkpoint to local filesystem or remote object store
