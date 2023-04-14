@@ -9,7 +9,8 @@ import json
 
 # A dictionary mapping input fields to their data types
 columns = {
-    'text': 'str'
+    'text': 'str',
+    'docid': 'str',
 }
 
 def main():
