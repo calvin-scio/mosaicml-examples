@@ -1,7 +1,7 @@
 data_local: ./c4-scio-prod-2023-04-14-nocrm-mds
 data_remote: # If blank, files must be present in data_local
 tokenizer_name: gpt2
-max_seq_len: 1024
+max_seq_len: 2048
 global_seed: 18
 
 # Run Name
