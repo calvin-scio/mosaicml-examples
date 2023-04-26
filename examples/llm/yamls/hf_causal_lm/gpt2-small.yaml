@@ -119,5 +119,5 @@ save_folder: ./{run_name}/checkpoints
 
 # Load from local filesystem or remote object store
 # load_path: ./{run_name}/checkpoints/latest-rank0.pt
-load_path: ./scioprodgpt2nocrm2/checkpoints/ep0-ba1780-rank0.pt
+load_path: ./scioprodgpt2nocrm2/checkpoints/latest-rank0.pt
 # load_path: s3://my-bucket/my-folder/gpt-125m/checkpoints/latest-rank{rank}.pt
