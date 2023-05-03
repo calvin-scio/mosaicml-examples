@@ -100,6 +100,11 @@ def parse_args() -> Namespace:
                         nargs='?',
                         const=True,
                         default=None)
+    parser.add_argument('--alpaca',
+                        type=str2bool,
+                        nargs='?',
+                        const=True,
+                        default=False)
     parser.add_argument('--revision', type=str, default=None)
     parser.add_argument('--device', type=str, default=None)
     parser.add_argument('--attn_impl', type=str, default=None)
@@ -111,6 +116,15 @@ def maybe_synchronize():
     if torch.cuda.is_available():
         torch.cuda.synchronize()
 
+# From here 
+ALPACA_PROMPT_TEMPLATE = """
+Below is an instruction that describes a task. Write a response that appropriately completes the request.
+
+### Instruction:
+{instruction}
+
+### Response:
+""".strip()
 
 def main(args: Namespace) -> None:
     AutoConfig.register('mosaic_gpt', MosaicGPTConfig)
@@ -127,6 +141,11 @@ def main(args: Namespace) -> None:
         'max_seq_len': args.max_seq_len,
     }
     model_kwargs = {k: v for k, v in model_kwargs.items() if v is not None}
+    if args.alpaca:
+        print('Using alpaca instruction prompt formatting')
+        args.prompts = [
+            ALPACA_PROMPT_TEMPLATE.format(instruction=prompt) for prompt in args.prompts
+        ]
 
     try:
         model = AutoModelForCausalLM.from_pretrained(args.name_or_path,
